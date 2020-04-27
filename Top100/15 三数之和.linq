@@ -2,10 +2,9 @@
 
 void Main()
 {
-	
+	ThreeSum(new int[] {-1,0,1,2,-1,-4}).Dump();
 }
 
-// Define other methods and classes here
 public IList<IList<int>> ThreeSum(int[] nums)
 {
 	var res = new List<IList<int>>(); 
@@ -25,14 +24,12 @@ public IList<IList<int>> ThreeSum(int[] nums)
 			if (sum == 0)
 			{
 				res.Add(new List<int> { nums[i], nums[l], nums[r] });
-				while (l < r && nums[l] == nums[l + 1]) l++;
-				while (l < r && nums[r] == nums[r - 1]) r--;
-				l++;
-				r--;
+				while (l < r && nums[l] == nums[++l]);
+				while (l < r && nums[r] == nums[--r]);
 			}
 			if (sum < 0) l++;
 			if (sum > 0) r--;
 		}
 	}
 	return res;
-}
+/}
