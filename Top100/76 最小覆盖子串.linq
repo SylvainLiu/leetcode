@@ -2,11 +2,49 @@
 
 void Main()
 {
+	MinWindow("ask_not_what_your_country_can_do_for_you_ask_what_you_can_do_for_your_country", "ask_country").Dump();
 }
 
-public int[] MinWindow(string s, string t)
+public string MinWindow(string s, string t)
 {
-		
+	if (string.IsNullOrEmpty(s)) return "";
+
+	var need = new int[128];
+	var window = new int[128];
+	for (var i = 0; i < t.Length; i++) 
+	{
+		need[t[i]]++;
+	}
+
+	var r = 0;
+	var l = 0;
+	var count = 0;
+	var minLength = int.MaxValue;
+	var minLeft = -1;
+	while (r < s.Length)
+	{
+		window[s[r]]++;
+		if (need[s[r]] > 0 && need[s[r]] >= window[s[r]])
+			count++;
+
+		while (count == t.Length)
+		{
+			if (r - l + 1 < minLength) 
+			{
+				minLength = r- l + 1;
+				minLeft = l;
+			}
+			if (need[s[l]] > 0 && need[s[l]] >= window[s[l]])
+				count--;
+				
+			window[s[l]]--;
+			l++;
+		}
+		r++;
+	}
+	
+	if (minLeft == -1) return "";
+	return s.Substring(minLeft, minLength);
 }
 
 //public string MinWindow(string s, string t)
