@@ -2,10 +2,10 @@
 
 void Main()
 {
-	
+	var matrix = new string[][] { new[] { "1", "0", "1", "0", "0" }, new[] { "1", "0", "1", "1", "1" }, new[] { "1", "1", "1", "1", "1" }, new[] { "1", "0", "0", "1", "0"}};
+	MaximalRectangle(matrix);
 }
 
-// Define other methods and classes here
 public int MaximalRectangle(char[][] matrix)
 {
 	if (matrix.Length == 0) return 0;
@@ -44,30 +44,3 @@ public int Help(int[] dp)
 		
 	return max;
 }
-
-//public int MaximalRectangle(char[][] matrix)
-//{
-//	if (matrix.Length == 0) return 0;
-//
-//	var dp = new int[matrix.Length, matrix[0].Length];
-//	var max = 0;
-//
-//	for (var i = 0; i < matrix.Length; i++)
-//		for (var j = 0; j < matrix[0].Length; j++)
-//		{
-//			if (matrix[i][j] == '1')
-//			{
-//				dp[i, j] = j == 0 ? 1 : (dp[i, j - 1] + 1);
-//
-//				var width = dp[i, j];
-//				for (var k = i; k >= 0; k--)
-//				{
-//					width = Math.Min(width, dp[k, j]);
-//					var height = i - k + 1;
-//					max = Math.Max(max, width * height);
-//				}
-//			}
-//		}
-//
-//	return max;
-//}

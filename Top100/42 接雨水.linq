@@ -2,10 +2,9 @@
 
 void Main()
 {
-	
+	Trap(new int[] {0,1,0,2,1,0,1,3,2,1,2,1}).Dump();
 }
 
-// Define other methods and classes here
 public int Trap(int[] height)
 {
 	if (height.Length == 0) return 0;
