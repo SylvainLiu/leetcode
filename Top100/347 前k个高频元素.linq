@@ -17,22 +17,22 @@ public IList<int> TopKFrequent(int[] nums, int k)
 		else dic.Add(nums[i], 1);
 	}
 
-	var sort = new SortedDictionary<int, int>(Comparer<int>.Create((x, y) => dic[x].CompareTo(dic[y])));
-	//  var sort = new SortedDictionary<int, int>(new Comparer(dic));
-	//	var sort = new SortedDictionary<int, int>(Comparer<int>.Create(
-	//		(x, y) =>
-	//		{
-	//			int vx = dic[x], vy = dic[y];
-	//			return vx == vy ? x.CompareTo(y) : vx.CompareTo(vy);
-	//		}));
-		
+//	var sort = new SortedDictionary<int, int>(Comparer<int>.Create((x, y) => dic[x].CompareTo(dic[y])));
+//	var sort = new SortedDictionary<int, int>(new Comparer(dic));
+	var sort = new SortedDictionary<int, int>(Comparer<int>.Create(
+		(x, y) =>
+		{
+			int vx = dic[x], vy = dic[y];
+			return vx == vy ? x.CompareTo(y) : vx.CompareTo(vy);
+		}));
+	
 	foreach (var pair in dic)
 	{
 		sort.Add(pair.Key, pair.Value);
-		if (sort.Count() > k) sort.Remove(sort.First().Key);
+		//if (sort.Count() > k) sort.Remove(sort.First().Key);
 	}
 	
-	return sort.Keys.ToList();
+	return sort.Keys.Take(k).ToList();
 }
 
 public class Comparer : IComparer<int> 

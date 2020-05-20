@@ -101,32 +101,6 @@ public void Flatten(TreeNode root)
 //	}
 //}
 
-// Define other methods and classes here
-//public void Flatten(TreeNode root)
-//{
-//	if (root == null) return;
-//	
-//	var res = new List<TreeNode>();
-//	dfs(root, res);
-//
-//	var head = res.First();
-//	for (var i = 1; i < res.Count(); i++)
-//	{
-//		head.left = null;
-//		head.right = res[i];
-//		head = head.right;
-//	}
-//}
-//
-//void dfs(TreeNode node, List<TreeNode> res)
-//{
-//	if (node == null) return;
-//
-//	res.Add(node);
-//	dfs(node.left, res);
-//	dfs(node.right, res);
-//}
-
 
 public class TreeNode
 {
