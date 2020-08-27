@@ -18,40 +18,20 @@ void Main()
 	ReverseList(head).Dump();
 }
 
-public ListNode ReverseList(ListNode head)
+public ListNode ReverseList(ListNode head) 
 {
-	if (head == null) return null;
-	if (head.next == null) return head;
-
-	var pre = head;
-	var current = head.next;
-	pre.next = null;
+	if (head == null || head.next == null) return head;
 	
-	while (current.next != null) 
+	ListNode pre = null;
+	var cur = head;
+
+	while (cur != null) 
 	{
-		var temp = current.next;
-		current.next = pre;
-		pre = current;
-		current = temp;
+		var tmp = cur;
+		cur = cur.next;
+		tmp.next = pre;
+		pre = tmp;
 	}
 	
-	current.next = pre;
-	return current;
+	return pre;
 }
-
-//public ListNode ReverseList(ListNode head)
-//{
-//	var current = head;
-//	var dummy = new ListNode(0);
-//	dummy.next = null;
-//
-//	while (current != null)
-//	{
-//		var temp = current;
-//		current = current.next;
-//		temp.next = dummy.next;
-//		dummy.next = temp;
-//	}
-//
-//	return dummy.next;
-//}

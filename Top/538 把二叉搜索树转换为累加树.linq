@@ -44,29 +44,6 @@ public TreeNode ConvertBST(TreeNode root)
 //	return root;
 //}
 
-//public TreeNode ConvertBST(TreeNode root)
-//{
-//	var stack = new Stack<TreeNode>();
-//	var node = root;
-//	int sum = 0;
-//	while (stack.Any() || node != null)
-//	{
-//		while (node != null)
-//		{
-//			stack.Push(node);
-//			node = node.right;
-//		}
-//		
-//		node = stack.Pop();
-//		sum += node.val;
-//		node.val = sum;
-//		
-//		node = node.left;
-//	}
-//	
-//	return root;
-//}
-
 // Define other methods and classes here
 //public TreeNode ConvertBST(TreeNode root)
 //{

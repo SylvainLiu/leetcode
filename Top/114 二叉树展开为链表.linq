@@ -77,30 +77,6 @@ public void Flatten(TreeNode root)
 //	return node;
 //}
 
-//public void Flatten(TreeNode root)
-//{
-//	if (root == null) return;
-//	var stack = new Stack<TreeNode>();
-//	stack.Push(root);
-//
-//	var pre = new TreeNode(-1);
-//	while (stack.Any()) 
-//	{
-//		pre.left = null;
-//		pre.right = stack.Pop();
-//		pre = pre.right;
-//
-//		if (pre.right != null) 
-//		{
-//			stack.Push(pre.right);
-//		}
-//		if (pre.left != null)
-//		{
-//			stack.Push(pre.left);
-//		}
-//	}
-//}
-
 
 public class TreeNode
 {
